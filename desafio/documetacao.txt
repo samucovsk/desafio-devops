@@ -1,0 +1,7 @@
+https://flask.palletsprojects.com/en/stable/quickstart/#a-minimal-application
+
+https://stackoverflow.com/questions/9878020/how-do-i-get-the-user-agent-with-flask
+
+https://www.datacamp.com/tutorial/python-redis-beginner-guide
+
+https://medium.com/@y.zeynab1/building-a-visitor-counter-app-with-docker-flask-and-redis-40b6bab5ec1e

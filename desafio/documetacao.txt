@@ -5,3 +5,9 @@ https://stackoverflow.com/questions/9878020/how-do-i-get-the-user-agent-with-fla
 https://www.datacamp.com/tutorial/python-redis-beginner-guide
 
 https://medium.com/@y.zeynab1/building-a-visitor-counter-app-with-docker-flask-and-redis-40b6bab5ec1e
+
+https://oneuptime.com/blog/post/2026-01-26-flask-redis-integration/view
+
+https://www.mongodb.com/pt-br/docs/languages/python/pymongo-driver/current/connect/
+
+https://redis.io/docs/latest/develop/clients/redis-py/

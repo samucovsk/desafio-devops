@@ -11,3 +11,7 @@ https://oneuptime.com/blog/post/2026-01-26-flask-redis-integration/view
 https://www.mongodb.com/pt-br/docs/languages/python/pymongo-driver/current/connect/
 
 https://redis.io/docs/latest/develop/clients/redis-py/
+
+https://www.hashtagtreinamentos.com/requirements-txt-python#ambiente-virtual-uma-boa-pratica-complementar
+
+https://hyperskill.org/blog/post/building-and-deploying-a-flask-to-do-app-with-docker-mongodb-and-redis

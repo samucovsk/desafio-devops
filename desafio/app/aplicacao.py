@@ -1,15 +1,17 @@
 from flask import Flask, request
 import redis
 from pymongo import MongoClient
+import os
 
 app = Flask(__name__)
 
-uri = "mongodb://localhost:27017/"
-m = MongoClient(uri)
+redis_url = os.getenv("REDIS_URL", "redis://localhost:6379")
+r = redis.from_url(redis_url)
+
+mongo_url = os.getenv("MONGO_URL", "mongodb://root:root@localhost:27017")
+m = MongoClient(mongo_url)
 db = m.desafio
 colecao = db["clientes"]
-
-r = redis.Redis(host="localhost", port=6379, db=0)
 
 @app.route("/")
 def hello_world():
@@ -42,3 +44,6 @@ def redis_data():
     except Exception as e:
         raise Exception (
             "The following error occurred: ", e)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)

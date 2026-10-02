@@ -1,0 +1,32 @@
+# Etapa do build
+FROM python:3.14.7-alpine3.24 AS builder
+
+# Definindo o diretório de trabalho
+WORKDIR /desafio
+
+#copia só o que o builder precisa
+COPY requirements.txt .
+
+RUN python -m venv /opt/venv
+# Make sure we use the virtualenv:
+ENV PATH="/opt/venv/bin:$PATH"
+
+RUN pip install -r requirements.txt
+
+FROM python:3.14.7-alpine3.24 AS runner
+
+WORKDIR /desafio
+
+ENV PATH="/opt/venv/bin:$PATH"
+
+COPY app/ ./app/
+
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
+COPY --from=builder /opt/venv /opt/venv
+
+USER appuser
+
+EXPOSE 5000
+
+CMD ["python", "app/aplicacao.py"]

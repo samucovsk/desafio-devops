@@ -1,0 +1,23 @@
+services:
+  flask:
+    build: 
+      context: .
+    container_name: flask
+    ports:
+      - "5000:5000"
+    environment:
+      REDIS_URL: redis://redis:6379
+      MONGO_URL: mongodb://mongo:27017
+    depends_on:
+      - redis
+      - mongo
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+
+  mongo:
+    image: mongo:7.0 # versão latest estava dando problema com o kernel do host
+    ports:
+      - "27017:27017"

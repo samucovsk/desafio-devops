@@ -15,3 +15,7 @@ https://redis.io/docs/latest/develop/clients/redis-py/
 https://www.hashtagtreinamentos.com/requirements-txt-python#ambiente-virtual-uma-boa-pratica-complementar
 
 https://hyperskill.org/blog/post/building-and-deploying-a-flask-to-do-app-with-docker-mongodb-and-redis
+
+https://www.baeldung.com/ops/docker-hub-imagetag-combination
+
+https://pt.stackoverflow.com/questions/311679/como-comparar-o-valor-de-uma-vari%C3%A1vel-com-uma-string-no-shell-script

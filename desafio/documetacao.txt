@@ -23,3 +23,5 @@ https://pt.stackoverflow.com/questions/311679/como-comparar-o-valor-de-uma-vari%
 https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/
 
 https://www.geeksforgeeks.org/linux-unix/bash-script-read-user-input/
+
+https://docs.docker.com/reference/cli/docker/container/exec/

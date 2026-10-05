@@ -1,15 +1,38 @@
 #!/bin/bash
-
+REPO="samucovsk/desafio-devsecops"
 read -p "Digite a tag da imagem: " TAG
 
-docker manifest inspect samucovsk/desafio-devsecops:$TAG > /dev/null 
+docker manifest inspect $REPO:$TAG > /dev/null 
 TAG_EXIST=$?
 
 if [ "$TAG_EXIST" == 0 ]; then
-    echo "A imagem já existe no Docker Hub. Pulando o build."
+    echo -e "\nA imagem já existe no Docker Hub. Pulando o build.\n"
     exit 0
 else
-    echo "A imagem não existe no Docker Hub. Continuando o build."
-    docker build -t samucovsk/desafio-devsecops:$TAG .
-    docker push samucovsk/desafio-devsecops:$TAG
+    echo -e "\nA imagem não existe no Docker Hub. Continuando o build.\n"
+    docker build -t $REPO:$TAG .
+    IMAGE=$?
+
+    echo -e "\nSubindo dependencias\n"
+    docker compose up -d redis mongo
+
+    echo -e "\nSubindo container da aplicação\n"
+    docker run -d --name teste-script --network desafio_default -e REDIS_URL=redis://redis:6379 -e MONGO_URL=mongodb://mongo:27017 $REPO:$TAG
+    sleep 5
+
+    HEALTHY=$(docker exec teste-script sh -c "wget -qO- http://127.0.0.1:5000/health_redis")
+        if [ "$HEALTHY" == '{"mongodb":"connected","redis":"connected","status":"healthy"}' ]; then
+            echo -e "\nContainer de teste saúdavel! dando push na imagem.\n" 
+            docker push $REPO:$TAG
+        else
+            echo -e "\nHealthcheck falhou. Interrompendo o push.\n"
+            exit 0
+        fi
+    echo -e "\nRemovendo dependencias\n"
+    docker compose down 
+    echo -e "\nRemocendo container da aplicação\n"
+    docker stop teste-script
+    docker rm teste-script
+    echo -e "Fim."
 fi
+

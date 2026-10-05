@@ -19,3 +19,5 @@ https://hyperskill.org/blog/post/building-and-deploying-a-flask-to-do-app-with-d
 https://www.baeldung.com/ops/docker-hub-imagetag-combination
 
 https://pt.stackoverflow.com/questions/311679/como-comparar-o-valor-de-uma-vari%C3%A1vel-com-uma-string-no-shell-script
+
+https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/

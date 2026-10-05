@@ -14,6 +14,8 @@ REPO="samucovsk/desafio-devsecops"
 read -p "Digite a tag da imagem: " TAG
 IMAGE="$REPO:$TAG"
 
+docker login -p $PASSWORD -u $USERNAME
+
 docker manifest inspect $IMAGE > /dev/null 
 TAG_EXIST=$?
 

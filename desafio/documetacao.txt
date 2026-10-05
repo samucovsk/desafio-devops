@@ -25,3 +25,5 @@ https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-an
 https://www.geeksforgeeks.org/linux-unix/bash-script-read-user-input/
 
 https://docs.docker.com/reference/cli/docker/container/exec/
+
+https://linuxize.com/post/bash-functions/

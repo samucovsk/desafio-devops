@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -o pipefail
 
 limpar_ambiente(){
     echo -e "\nRemovendo dependencias\n"
@@ -33,7 +33,7 @@ TAG_EXIST=$?
 
 if [ "$TAG_EXIST" == 0 ]; then
     echo -e "\nA imagem já existe no Docker Hub. Pulando o build.\n"
-    exit 0
+    exit 1
 else
     echo -e "\nA imagem não existe no Docker Hub. Continuando o build.\n"
     
@@ -53,7 +53,7 @@ else
         else
             echo -e "\nHealthcheck falhou. Interrompendo o push.\n"
             limpar_ambiente
-            exit 0
+            exit 1
         fi
     limpar_ambiente
 fi

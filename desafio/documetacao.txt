@@ -31,3 +31,7 @@ https://linuxize.com/post/bash-functions/
 https://learn.microsoft.com/pt-br/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml
 
 https://stackoverflow.com/questions/78444566/auto-increment-project-version-in-dockerfile
+
+https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/steps-script?view=azure-pipelines
+
+https://community.atlassian.com/forums/discussion/1060727/how-can-i-fail-a-pipeline-if-there-is-a-failure-in-the-build-sh-script-in-the-build-step

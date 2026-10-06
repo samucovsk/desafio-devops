@@ -24,7 +24,7 @@ steps:
   displayName: 'Somente build da imagem'
   condition: eq(variables['Build.Reason'], 'PullRequest')
 
-- script: ./desafio/build.bash
+- script: ./build.bash
   
   env: 
     REPO: $(REPO)

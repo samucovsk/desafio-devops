@@ -10,23 +10,11 @@ limpar_ambiente(){
     echo -e "Fim."
 }
 
-# check if version.txt file exist, otherwise create one and store initial version
-   if [ ! -f version.txt ]; then echo "1.0" > version.txt
-   fi
-# declare a variable to store current version
-   CURRENT_VERSION=$(<version.txt)
-# create a new version
-   UPDATED_VERSION=$(echo "$CURRENT_VERSION + 0.1" | bc)
-# write new version back to file
-   echo "$UPDATED_VERSION" > version.txt
-# then build docker image with new version
-
-
 REPO=$REPO
 # read -p "Digite a tag da imagem: " TAG
-IMAGE="$REPO:$UPDATED_VERSION"
+IMAGE="$REPO:$TAG"
 
-docker login -p $PASSWORD -u $USERNAME
+echo "$PASSWORD" | docker login -u "$USERNAME" --password-stdin
 
 docker manifest inspect $IMAGE > /dev/null 
 TAG_EXIST=$?
@@ -49,12 +37,11 @@ else
 
     HEALTHY=$(docker exec teste-script sh -c "wget -qO- http://127.0.0.1:5000/health_redis")
         if [ "$HEALTHY" == '{"mongodb":"connected","redis":"connected","status":"healthy"}' ]; then
-            echo -e "\nContainer de teste saúdavel!\n" 
+            echo -e "\nContainer de teste saúdavel! Finalizando o script sem dar push.\n" 
+            exit 0
         else
             echo -e "\nHealthcheck falhou. Interrompendo o push.\n"
             limpar_ambiente
             exit 1
-        fi
-    limpar_ambiente
 fi
 

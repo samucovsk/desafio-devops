@@ -44,10 +44,11 @@ else
             PUSH_SUCCEEDED=$?
             if [ "$PUSH_SUCCEEDED" == 0 ]; then
                 limpar_ambiente
-                exit 1
+                echo -e "\nPush Succeeded!\n"
+                exit 0
             else
                 limpar_ambiente
-                exit 0
+                exit 1
             fi
         else
             echo -e "\nHealthcheck falhou. Interrompendo o push.\n"

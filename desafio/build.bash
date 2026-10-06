@@ -16,7 +16,7 @@ REPO=$REPO
 # read -p "Digite a tag da imagem: " TAG
 IMAGE="$REPO:$TAG"
 
-docker login -p $PASSWORD -u $USERNAME --password-stdin
+echo "$PASSWORD" | docker login -u "$USERNAME" --password-stdin
 
 docker manifest inspect $IMAGE > /dev/null 
 TAG_EXIST=$?
@@ -41,13 +41,14 @@ else
         if [ "$HEALTHY" == '{"mongodb":"connected","redis":"connected","status":"healthy"}' ]; then
             echo -e "\nContainer de teste saúdavel! dando push na imagem.\n" 
             docker push $IMAGE
-            PUSH_SUCCEEDED = $?
-            if [ "$PUSH_SUCCEEDED" == 0]; then
+            PUSH_SUCCEEDED=$?
+            if [ "$PUSH_SUCCEEDED" == 0 ]; then
                 limpar_ambiente
                 exit 1
             else
                 limpar_ambiente
                 exit 0
+            fi
         else
             echo -e "\nHealthcheck falhou. Interrompendo o push.\n"
             limpar_ambiente

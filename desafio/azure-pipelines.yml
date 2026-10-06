@@ -14,7 +14,8 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: ./desafio/build_pr.bash
+- script: ./build_pr.bash
+  workingDirectory: desafio
   
   env: 
     REPO: $(REPO)
@@ -24,7 +25,8 @@ steps:
   displayName: 'Somente build da imagem'
   condition: eq(variables['Build.Reason'], 'PullRequest')
 
-- script: ./desafio/build.bash
+- script: ./build.bash
+  workingDirectory: desafio
   
   env: 
     REPO: $(REPO)

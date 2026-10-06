@@ -29,3 +29,5 @@ https://docs.docker.com/reference/cli/docker/container/exec/
 https://linuxize.com/post/bash-functions/
 
 https://learn.microsoft.com/pt-br/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml
+
+https://stackoverflow.com/questions/78444566/auto-increment-project-version-in-dockerfile

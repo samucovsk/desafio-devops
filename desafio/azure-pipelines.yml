@@ -25,7 +25,7 @@ steps:
     REPO: $(REPO)
     PASSWORD: $(PASSWORD)
     USERNAME: $(USERNAME)
-    TAG: $(minor)
+    TAG: $(major).$(minor)
 
   displayName: 'Somente build da imagem'
   condition: eq(variables['Build.Reason'], 'PullRequest')
@@ -37,6 +37,7 @@ steps:
     REPO: $(REPO)
     PASSWORD: $(PASSWORD)
     USERNAME: $(USERNAME)
+    TAG: $(major).$(minor)
 
   displayName: "Build e push da imagem para o dockerhub"
   condition: eq(variables['Build.Reason'], 'IndividualCI')

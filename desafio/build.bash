@@ -41,11 +41,17 @@ else
         if [ "$HEALTHY" == '{"mongodb":"connected","redis":"connected","status":"healthy"}' ]; then
             echo -e "\nContainer de teste saúdavel! dando push na imagem.\n" 
             docker push $IMAGE
+            PUSH_SUCCEEDED = $?
+            if [ "PUSH_SUCCEEDED" == 0]; then
+                limpar_ambiente
+                exit 1
+            else
+                limpar_ambiente
+                exit 0
         else
             echo -e "\nHealthcheck falhou. Interrompendo o push.\n"
             limpar_ambiente
             exit 1
         fi
-    limpar_ambiente
 fi
 

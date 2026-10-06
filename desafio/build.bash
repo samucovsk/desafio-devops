@@ -42,7 +42,7 @@ else
             echo -e "\nContainer de teste saúdavel! dando push na imagem.\n" 
             docker push $IMAGE
             PUSH_SUCCEEDED = $?
-            if [ "PUSH_SUCCEEDED" == 0]; then
+            if [ "$PUSH_SUCCEEDED" == 0]; then
                 limpar_ambiente
                 exit 1
             else

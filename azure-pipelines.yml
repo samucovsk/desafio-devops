@@ -15,9 +15,21 @@ pool:
 
 steps:
 - script: ./build_pr_bash
+  
+  env: 
+  REPO: $(REPO)
+  PASSWORD: $(PASSWORD)
+  USERNAME: $(USERNAME)
+
   displayName: 'Somente build da imagem'
   condition: eq(variables['Build.Reason'], 'PullRequest')
 
 - script: ./build_bash
+  
+  env: 
+  REPO: $(REPO)
+  PASSWORD: $(PASSWORD)
+  USERNAME: $(USERNAME)
+
   displayName: "Build e push da imagem para o dockerhub"
   condition: eq(variables['Build.Reason'], 'IndividualCI')

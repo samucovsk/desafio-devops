@@ -10,7 +10,7 @@ limpar_ambiente(){
     echo -e "Fim."
 }
 
-REPO="samucovsk/desafio-devsecops"
+REPO=$REPO
 read -p "Digite a tag da imagem: " TAG
 IMAGE="$REPO:$TAG"
 

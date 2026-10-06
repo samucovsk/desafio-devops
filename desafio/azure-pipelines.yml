@@ -15,7 +15,7 @@ pool:
 
 variables: 
   major: 1
-  minor: $[counter(variables["major"], 100)]
+  minor: $[counter(variables['major'], 100)]
 
 steps:
 - script: ./build_pr.bash
@@ -25,7 +25,7 @@ steps:
     REPO: $(REPO)
     PASSWORD: $(PASSWORD)
     USERNAME: $(USERNAME)
-    TAG: $(major).$(minor)
+    TAG: $(minor)
 
   displayName: 'Somente build da imagem'
   condition: eq(variables['Build.Reason'], 'PullRequest')

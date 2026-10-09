@@ -43,5 +43,6 @@ else
             echo -e "\nHealthcheck falhou. Interrompendo o push.\n"
             limpar_ambiente
             exit 1
+        fi
 fi
 

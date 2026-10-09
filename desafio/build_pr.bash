@@ -10,6 +10,8 @@ limpar_ambiente(){
     echo -e "Fim."
 }
 
+echo -e "\n================================================================a TAG gerada é $TAG================================================================\n" 
+
 REPO=$REPO
 # read -p "Digite a tag da imagem: " TAG
 IMAGE="$REPO:$TAG"

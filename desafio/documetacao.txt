@@ -35,3 +35,5 @@ https://stackoverflow.com/questions/78444566/auto-increment-project-version-in-d
 https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/steps-script?view=azure-pipelines
 
 https://community.atlassian.com/forums/discussion/1060727/how-can-i-fail-a-pipeline-if-there-is-a-failure-in-the-build-sh-script-in-the-build-step
+
+https://dev.to/vengi83644/using-counters-in-azure-devops-pipeline-to-increment-assembly-version-numbers-3afj
